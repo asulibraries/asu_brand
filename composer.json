@@ -1,0 +1,10 @@
+{
+    "name": "asulibraries/asu_brand",
+    "description": "Fork of ASU Header component and brand assets.",
+    "type": "drupal-module",
+    "license": "MIT",
+   
+    "require": {},
+    "version": "1.0"
+}
+
