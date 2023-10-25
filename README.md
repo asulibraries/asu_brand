@@ -18,8 +18,16 @@ Find more technical details about the header, GTM and cookie consent on
 The ASU Brand module installs when you create a Webspark site. If you're
 using this module outside of Webspark or in other situations, see the
 instructions below.
-1. Install and enable the ASU Brand module just like any other module.
-2. Go to the Admin -> Structure -> Blocks and place the ASU Brand header block
+1. Add VCS for this github repo in composer.json
+```
+{
+            "type": "vcs",
+            "url": "https://github.com/asulibraries/asu_brand"
+        }
+```
+2. Composer require the module - `composer require asulibraries/asu_brand:dev-main`
+3. Enable the ASU Brand module just like any other module.
+4. Go to the Admin -> Structure -> Blocks and place the ASU Brand header block
    into the header region of your site. Please note that the header supplies
    its own header tag, so you may need to update non-Webspark themes to ensure
    they do not set their own header tags. The available regions will be
