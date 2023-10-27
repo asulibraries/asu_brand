@@ -2,7 +2,7 @@
 
 The ASU Brand module provides the following functionality:
 * An ASU branded, accessible, Web Standards compliant Header with integration
-  with ASU search and spplying required links. The header provides navigation
+  with ASU search and applying required links. The header provides navigation
   menu which you can configure through the Drupal admin user interface. More
   details on configuration below.
 * ASU Universal Google Tag Manager. Enabled and included in your site's markup
@@ -117,3 +117,7 @@ function hook_asu_brand_gtm_datalayer_alter(array &$datalayer) {
 }
 */
 ```
+
+## This module
+This module is a manual fork of the Webspark ASU Brand module. Modifications are as follows:
+1. Added React libraries to this module from Webspark's asu_react_integration and asu_react_core modules and modified this module to point to the new locations.
