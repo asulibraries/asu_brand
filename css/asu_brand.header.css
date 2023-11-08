@@ -14,7 +14,8 @@ body {
   top:79px;
 }
 #ws2HeaderContainer.asu-brand-toolbar-header-tray-closed-compat header {
-  top:39px;
+  /*top:39px;*/
+  top:0px;
 }
 body.toolbar-horizontal.toolbar-tray-open {
   padding-top:184px !important; /* Adjust space below header */
