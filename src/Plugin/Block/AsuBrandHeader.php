@@ -21,7 +21,7 @@ use Drupal\Core\Url;
  *   category = @Translation("ASU brand"),
  * )
  */
-class AsuBrandHeaderBlock extends BlockBase {
+class AsuBrandHeader extends BlockBase {
 
   /**
    * {@inheritdoc}
