@@ -2,7 +2,7 @@
 
 The ASU Brand module provides the following functionality:
 * An ASU branded, accessible, Web Standards compliant Header with integration
-  with ASU search and applying required links. The header provides navigation
+  with ASU search and supplying required links. The header provides navigation
   menu which you can configure through the Drupal admin user interface. More
   details on configuration below.
 * ASU Universal Google Tag Manager. Enabled and included in your site's markup
