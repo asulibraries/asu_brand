@@ -1,0 +1,7 @@
+/* Local styles for the ASU Brand module */
+
+/* Fix positioning of head and scrolled header */
+#ws2HeaderContainer.asu-brand-toolbar-header-tray-closed-compat header,
+#ws2HeaderContainer.asu-brand-toolbar-header-tray-closed-compat div#asuHeader {
+    top:0;
+}

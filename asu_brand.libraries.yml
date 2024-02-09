@@ -13,6 +13,8 @@ components-library:
   css:
     component:
       css/asu_brand.header.css: {}
+      css/asu-brand-edit-form.css: {}
+      css/asu-brand-local.css: {}
 block__system_main_block:
   css:
     theme:
