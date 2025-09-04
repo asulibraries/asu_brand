@@ -70,12 +70,10 @@ class AsuBrandHeader extends BlockBase {
       $current_uid = \Drupal::currentUser()->id();
       if ($current_uid > 0) {
         $props['loggedIn'] = TRUE;
-        // If we have the SSONAME cookie, use that name. Fallback to
-        // "You are logged in" since using the username results in cache issues
-        // given the per-role cache. Caching per user causes the header to
-        // break for some reason. See also JS solve we have as a backup for
-        // when Pantheon strips cookies, in asu_brand.header.js.
-        $props['userName'] = isset($_COOKIE['SSONAME']) ? Html::escape($_COOKIE['SSONAME']) : t('You are logged in');
+        // In the frontend JS code that launches the component, we check
+        // for the SSONAME cookie and use that for userName if it exists. We
+        // don't use a fallback here to ensure a stronger caching posture.
+        $props['userName'] = t('You are logged in');
       } else { // Force header to match Drupal login state even if there's an SSO session.
         $props['loggedIn'] = FALSE;
         $props['userName'] = '';
@@ -154,8 +152,10 @@ class AsuBrandHeader extends BlockBase {
    * {@inheritdoc}
    */
   public function getCacheContexts() {
-    // TODO We should really only use the user context due to our current
-    // username fallback above, but that breaks the component for some reason.
+    // Set the cache contexts to include user roles. This allows the block to
+    // be cached per user role, which will help with performance. We've stopped
+    // falling back the userName prop to the current user name and simply set
+    // it on the frontend via JS.
     return Cache::mergeContexts(parent::getCacheContexts(), ['user.roles']);
   }
 

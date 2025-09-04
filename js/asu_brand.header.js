@@ -25,8 +25,7 @@
   // Get config values passed in from AsuBrandHeaderBlock.php
   var props = drupalSettings.asu_brand.props;
 
-  // Pantheon strips some cookie values before they hit PHP, so
-  // Attempt to get userName prop in JS here for those instances.
+  // If there's an SSONAME cookie, patch it into the userName prop.
   var name = 'SSONAME=';
   var decodedCookie = decodeURIComponent(document.cookie);
   var ca = decodedCookie.split(';');
