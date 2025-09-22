@@ -1,4 +1,4 @@
-(function ($, Drupal, drupalSettings) {
+(function (Drupal, drupalSettings) {
   // Not using behaviors for most of this.
   Drupal.behaviors.AsuBrandHeaderBehavior = {
     attach: function (context, settings) {
@@ -25,8 +25,7 @@
   // Get config values passed in from AsuBrandHeaderBlock.php
   var props = drupalSettings.asu_brand.props;
 
-  // Pantheon strips some cookie values before they hit PHP, so
-  // Attempt to get userName prop in JS here for those instances.
+  // If there's an SSONAME cookie, patch it into the userName prop.
   var name = 'SSONAME=';
   var decodedCookie = decodeURIComponent(document.cookie);
   var ca = decodedCookie.split(';');
@@ -52,7 +51,7 @@
       }
     }
   }
-  
+
   function inActiveTrail(item, path) {
     // Check if the item path is a match.
     if (item['href'] === path) {
@@ -117,7 +116,9 @@
             headerElement.classList.remove("asu-brand-toolbar-header-tray-closed-compat" + vertSuffix);
             headerElement.classList.remove("asu-brand-toolbar-header-tray-closed-compat");
             // Set for current state.
-            headerElement.classList.add("asu-brand-toolbar-header-tray-closed-compat" + classSuffix);
+            if(drupalSettings.is_admin) {
+              headerElement.classList.add("asu-brand-toolbar-header-tray-closed-compat" + classSuffix);
+            }
           }
         }
 
@@ -170,6 +171,4 @@
     }
   }
 
-// TODO Without jQuery, we get Uncaught ReferenceError: jQuery is not defined.
-// Is it required by Drupal or drupalSettings? Would like it working w/o jQuery.
-})(jQuery, Drupal, drupalSettings);
+})(Drupal, drupalSettings);
